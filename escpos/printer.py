@@ -40,11 +40,11 @@ class Usb(Escpos):
         if self.device is None:
             raise NotFoundError("Device not found or cable not plugged in.")
 
-        if self.device.is_kernel_driver_active(0):
-            try:
-                self.device.detach_kernel_driver(0)
-            except usb.core.USBError as e:
-                print "Could not detatch kernel driver: %s" % str(e)
+        # if self.device.is_kernel_driver_active(0):
+        #     try:
+        #         self.device.detach_kernel_driver(0)
+        #     except usb.core.USBError as e:
+        #         print "Could not detatch kernel driver: %s" % str(e)
 
         try:
             self.device.set_configuration()
